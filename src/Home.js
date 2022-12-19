@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState , useEffect} from 'react';
 import BlogList from './BlogList';
 
 const Home = () => {
@@ -14,6 +14,15 @@ const Home = () => {
         const newBlogs = blogs.filter(blog => blog.id !== id);
         setBlogs(newBlogs);
     }
+
+    useEffect(() =>{
+        console.log('use effect run');
+        console.log(blogs);
+    });
+
+    // the anon func inside useEffect hook fires on every render, any state/data change triggers a rerender
+    // changing state inside useEffect could end up to a continuous loop of renders
+
     return (  
         <div className="home">
             <BlogList blogs={blogs} title={"All Blogs"} handleDelete = {handleDelete}/>  
