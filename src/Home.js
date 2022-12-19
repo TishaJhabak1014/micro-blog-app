@@ -2,30 +2,27 @@ import { useState , useEffect} from 'react';
 import BlogList from './BlogList';
 
 const Home = () => {
-    //let name = "mario"; // make this variable reactive
     const [blogs, setBlogs] = useState(null);
-    // use props to pass this data from this component to BogList-reuseable component
+    const [isPending, setIsPending] = useState(true);
 
     useEffect(() =>{
-        fetch('http://localhost:8000/blogs')
-        .then(response => {
-            return response.json();
-        })
-        .then(data => {
-            setBlogs(data);
-        }) 
+        setTimeout(() => {
+            fetch('http://localhost:8000/blogs')
+            .then(response => {
+                return response.json();
+            })
+            .then(data => {
+                setBlogs(data);
+                setIsPending(false);
+            }) 
+        }, 1000);
+        
     }, []);
-
-    // [ ] => empty dependency array makes the func run at the initial render only
-
-
-    // the anon func inside useEffect hook fires on every render, any state/data change triggers a rerender
-    // changing state inside useEffect could end up to a continuous loop of renders
 
     return (  
         <div className="home">
+            {isPending && <div> Loading ...</div>}
             {blogs && <BlogList blogs={blogs} title={"All Blogs"}/>  }
-            {/* propertyname and value */}
         </div>
     );
 }
