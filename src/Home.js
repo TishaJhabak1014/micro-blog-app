@@ -3,25 +3,18 @@ import BlogList from './BlogList';
 
 const Home = () => {
     //let name = "mario"; // make this variable reactive
-    const [blogs, setBlogs] = useState([
-        { title: 'My new website', body: 'lorem ipsum...', author: 'mario', id: 1 },
-        { title: 'Welcome party!', body: 'lorem ipsum...', author: 'yoshi', id: 2 },
-        { title: 'Web dev top tips', body: 'lorem ipsum...', author: 'mario', id: 3 }
-    ]);
+    const [blogs, setBlogs] = useState(null);
     // use props to pass this data from this component to BogList-reuseable component
 
-    const [name, setName] = useState('Tisha');
-
-    const handleDelete = (id) => {
-        const newBlogs = blogs.filter(blog => blog.id !== id);
-        setBlogs(newBlogs);
-    }
-
     useEffect(() =>{
-        console.log('use effect run');
-        console.log(name);
-
-    }, [name]);
+        fetch('http://localhost:8000/blogs')
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            setBlogs(data);
+        }) 
+    }, []);
 
     // [ ] => empty dependency array makes the func run at the initial render only
 
@@ -31,10 +24,8 @@ const Home = () => {
 
     return (  
         <div className="home">
-            <BlogList blogs={blogs} title={"All Blogs"} handleDelete = {handleDelete}/>  
+            {blogs && <BlogList blogs={blogs} title={"All Blogs"}/>  }
             {/* propertyname and value */}
-            <h1>{name}</h1>
-            <button onClick={() => setName('-Tisha')}> Click here</button>
         </div>
     );
 }
