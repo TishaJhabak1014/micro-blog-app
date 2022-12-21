@@ -4,6 +4,7 @@ import Create from './Create';
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import BlogDetails from './BlogDetails';
+import NotFound from './NotFound';
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
             <Route exact path="/create" element={<Create />}>
             </Route>
             <Route exact path="/blogs/:id" element={<BlogDetails />}>
+            </Route>
+            <Route exact path="*" element={<NotFound />}>
             </Route>
           </Routes>
           {/* changeable part od the route is route parameter; we fatch those parameters within the component to update the dom accordaingly  */}
