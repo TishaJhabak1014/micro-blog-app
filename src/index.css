@@ -99,3 +99,24 @@
   border-radius: 8px;
   cursor: pointer;
 }
+
+.not-found{
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.not-found h2, p{
+  padding: 6px 10px;
+  margin: 10px 0;
+}
+
+.not-found button{
+  margin-top:50px;
+  background: #eb658d;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
