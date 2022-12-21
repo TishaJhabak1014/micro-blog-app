@@ -22,7 +22,6 @@ function App() {
             <Route exact path="*" element={<NotFound />}>
             </Route>
           </Routes>
-          {/* changeable part od the route is route parameter; we fatch those parameters within the component to update the dom accordaingly  */}
         </div>
       </div>
     </Router>
