@@ -71,3 +71,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
+### If went wrong when dependencies were installed the first time.
+- npm install -g npm@latest to update npm because it is sometimes buggy.
+- npm install rimraf to remove the existing modules (if using npm v5^)
+- npm install to re-install the project dependencies.
