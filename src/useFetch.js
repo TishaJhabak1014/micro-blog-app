@@ -1,8 +1,5 @@
 import { useState , useEffect} from 'react';
 
-
-// we need to stop the fetch by useEffect when the componenet using it unmounts from the browser
-// we use clean-up and abort-controller
 const useFetch =(url)=> {
     const [data, setData] = useState(null);
     const [isPending, setIsPending] = useState(true);
@@ -16,7 +13,6 @@ const useFetch =(url)=> {
             .then(response => {
                 if(!response.ok){
                     throw Error("Could not fetch the data");
-                    // invalid endpoint
                 }
                 return response.json();
             })
@@ -38,7 +34,7 @@ const useFetch =(url)=> {
         }, 1000);
 
         return () => {
-            abortCont.abort(); // aborts whatever fetch is associated with this
+            abortCont.abort(); 
         };
         
     }, [url]);
