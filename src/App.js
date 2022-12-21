@@ -1,14 +1,28 @@
 import Navbar from './Navbar';
 import Home from './Home';
+import Create from './Create';
+
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import BlogDetails from './BlogDetails';
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      <div className="content">
-        <Home />
+    <Router>
+      <div className="App">
+        <Navbar />
+        <div className="content">
+          <Routes>
+            <Route exact path="/" element={<Home />}>
+            </Route>
+            <Route exact path="/create" element={<Create />}>
+            </Route>
+            <Route exact path="/blogs/:id" element={<BlogDetails />}>
+            </Route>
+          </Routes>
+          {/* changeable part od the route is route parameter; we fatch those parameters within the component to update the dom accordaingly  */}
+        </div>
       </div>
-    </div>
+    </Router>
   );
 }
 
