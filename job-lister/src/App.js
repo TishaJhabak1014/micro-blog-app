@@ -1,4 +1,4 @@
-import {BrowserRouter as Router, Routes, Route, Link, NavLink} from 
+import {BrowserRouter as Router, Routes, Route, NavLink} from 
 'react-router-dom';
 
 // pages
@@ -12,7 +12,8 @@ function App() {
         <h1>JobHub</h1>
         {/* creates link that are handled within the browser */}
         {/* react-router-dom just swaps the content without sending any request to the browser */}
-        <Link to="/">Home</Link>
+        {/* navlink has active class associated with it unlink link */}
+        <NavLink to="/">Home</NavLink>
         <NavLink to="about">About</NavLink>
       </header>
       <main> 
