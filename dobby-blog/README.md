@@ -78,3 +78,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### To get json-server up and running:
 - `npx json-server --watch data/db.json --port 8000`
+
+### to generate own favicons
+- https://www.favicon.cc/
