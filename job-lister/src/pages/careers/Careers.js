@@ -17,7 +17,11 @@ export default function Careers() {
 
 // data loader
 export const careersLoader = async () => {
-  const res = await fetch('http://localhost:8000/careers')
+  const res = await fetch('http://localhost:8000/careers');
+
+  if(!res.ok){
+    throw Error("Could not fetch that career");
+  }
 
   return res.json();
     //   react router is going to resolve the promise

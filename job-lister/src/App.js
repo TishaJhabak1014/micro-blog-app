@@ -14,6 +14,7 @@ import NotFound from './pages/NotFound'
 import Careers from './pages/careers/Careers'
 import { careersLoader } from './pages/careers/Careers'
 import CareerDetails, { careerDetailsLoader } from './pages/careers/CareerDetails'
+import CareerError from './pages/careers/CareerError'
 
 // layouts
 import RootLayout from './layouts/RootLayout'
@@ -31,11 +32,11 @@ const router = createBrowserRouter(
       </Route>
 
       {/* loaders are used to load data to a component before it renders, we no longer need a ueEffect hook*/}
-      <Route path="careers" element={<CareersLayout />}>
+      <Route path="careers" element={<CareersLayout />} errorElement={<CareerError/>}>
         <Route 
           index 
           element={<Careers />} 
-          loader={careersLoader} 
+          loader={careersLoader}
         />
         <Route
           path=":id"
