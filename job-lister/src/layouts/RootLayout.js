@@ -1,9 +1,10 @@
-import { Outlet, NavLink } from "react-router-dom";
+import { Outlet, NavLink, ScrollRestoration } from "react-router-dom"
 import BreadCrumbs from "../components/BreadCrumbs"
 
 export default function RootLayout() {
   return (
     <div className="root-layout">
+      <ScrollRestoration />
       <header>
         <nav>
           <h1>Jobarouter</h1>
@@ -12,7 +13,7 @@ export default function RootLayout() {
           <NavLink to="help">Help</NavLink>
           <NavLink to="careers">Careers</NavLink>
         </nav>
-        <BreadCrumbs/>
+        <BreadCrumbs />
       </header>
       <main>
         <Outlet />
