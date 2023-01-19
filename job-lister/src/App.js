@@ -13,6 +13,7 @@ import Contact from './pages/help/Contact'
 import NotFound from './pages/NotFound'
 import Careers from './pages/careers/Careers'
 import { careersLoader } from './pages/careers/Careers'
+import CareerDetails, { careerDetailsLoader } from './pages/careers/CareerDetails'
 
 // layouts
 import RootLayout from './layouts/RootLayout'
@@ -36,7 +37,12 @@ const router = createBrowserRouter(
           element={<Careers />} 
           loader={careersLoader} 
         />
-      </Route>
+        <Route
+          path=":id"
+          element={<CareerDetails/>}
+          loader={careerDetailsLoader}
+        />
+        </Route>
 
       <Route path="*" element={<NotFound/>}/> 
       {/* 404 or catch all component */}
